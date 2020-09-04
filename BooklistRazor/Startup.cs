@@ -35,6 +35,7 @@ namespace BooklistRazor
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
             else
             {
