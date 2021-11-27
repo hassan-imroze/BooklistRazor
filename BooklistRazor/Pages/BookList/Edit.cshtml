@@ -1,16 +1,16 @@
 ﻿@page
-@model BooklistRazor.Pages.BookList.CreateModel
+@model BooklistRazor.Pages.BookList.EditModel
 @{
-    ViewData["Title"] = "Create Book";
 }
 
 <br />
-<h2 class="text-info">Create New Book</h2>
+<h2 class="text-info">Edit Book</h2>
 <br />
 
 <div class="border container" style="padding:30px;">
     <form method="post">
         @*<div class="text-danger" asp-validation-summary="ModelOnly"></div>*@
+        <input type="hidden" asp-for="Book.Id" class="form-control" />
         <div class="form-group row">
             <div class="col-3">
                 <label asp-for="Book.Name"></label>
@@ -43,7 +43,7 @@
                 <input type="submit" class="btn btn-primary form-control" />
             </div>
             <div class="col-3">
-                <a asp-page="Index" class="btn btn-success form-control" >Back to list</a>
+                <a asp-page="Index" class="btn btn-success form-control">Back to list</a>
             </div>
         </div>
     </form>
@@ -51,6 +51,6 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
- }
+}
 
 

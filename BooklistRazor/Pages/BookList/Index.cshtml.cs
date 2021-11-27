@@ -26,10 +26,26 @@ namespace BooklistRazor.Pages.BookList
         #endregion
 
         #region Handler Functions
+
         public async Task OnGet()
         {
             Books = await _db.Books.ToListAsync();
-        } 
+        }
+
+        public async Task<IActionResult> OnPostDelete(int bookId)
+        {
+            var book = await _db.Books.FindAsync(bookId);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _db.Books.Remove(book);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+
+        }
 
         #endregion
     }
